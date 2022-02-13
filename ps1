@@ -4,9 +4,7 @@ import sys
 import binascii
 import secrets
 
-with open(sys.argv[1]) as infile:
-	data = json.load(infile)
-infile.close()
+data = json.load(sys.stdin)
 
 j = 0
 for i in data['problem 1']:
@@ -41,6 +39,4 @@ for i in data['problem 4']:
 	data['problem 4'][j] = rnum
 	j = j+1
 
-with open(sys.argv[2], "w") as outfile:
-	json.dump(data, outfile)
-outfile.close()
+json.dump(data, sys.stdout)
